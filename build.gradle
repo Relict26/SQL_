@@ -33,4 +33,9 @@ test {
             'chromeoptions.prefs',
             'profile.password_manager_leak_detection=false'
     )
+
+    test {
+        systemProperty 'selenide.timeout', '10000'
+        systemProperty 'db.connection.timeout', '5000'
+    }
 }
