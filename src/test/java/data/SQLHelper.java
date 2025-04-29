@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class SQLHelper {
     private static final QueryRunner QUERY_RUNNER = new QueryRunner();
-    private static final int CONNECTION_TIMEOUT = 5; // seconds
 
     private SQLHelper() {
     }
@@ -36,7 +35,7 @@ public class SQLHelper {
     public static void cleanDatabase() {
         try (var connection = getConn()) {
             QUERY_RUNNER.execute(connection, "DELETE FROM auth_codes");
-            QUERY_RUNNER.execute(connection, "DELETE FROM card_transactoin");
+            QUERY_RUNNER.execute(connection, "DELETE FROM card_transactions");
             QUERY_RUNNER.execute(connection, "DELETE FROM cards");
             QUERY_RUNNER.execute(connection, "DELETE FROM users");
         }
